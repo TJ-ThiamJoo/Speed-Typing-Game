@@ -1,8 +1,10 @@
+// Referencing id from input.html
 const RAMDOM_QUOTE_API_URL = 'http://api.quotable.io/random';
 const quoteDisplayElement = document.getElementById('quoteDisplay');
 const quoteInputElement = document.getElementById('quoteInput');
 const timerElement = document.getElementById('timer');
 
+// Quote Input
 quoteInputElement.addEventListener('input', () => {
     const arrayQuote = quoteDisplayElement.querySelectorAll('span');
     const arrayValue = quoteInputElement.value.split('');
@@ -32,6 +34,7 @@ quoteInputElement.addEventListener('input', () => {
     if (correct) renderNewQuote();
 })
 
+// Get random quote from API URL
 function getRandomQuote(){
     return fetch(RAMDOM_QUOTE_API_URL)
         .then(response => response.json())
@@ -53,14 +56,15 @@ async function renderNewQuote(){
     startTimer();
 }
 
-let startTime
+// Timer
+let startTime;
 function startTimer(){
     timerElement.innerText = 0;
     startTime = new Date();
 
     setInterval(() => {
-        timerElement.innerText = getTimerTime();
-    }, 1000)
+        timerElement.innerText = getTimerTime()
+    }, 1000);
 
 }
 
