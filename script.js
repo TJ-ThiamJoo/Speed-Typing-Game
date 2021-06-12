@@ -34,6 +34,7 @@ quoteInputElement.addEventListener('input', () => {
     if (correct) renderNewQuote();
 })
 
+
 // Get random quote from API URL
 function getRandomQuote(){
     return fetch(RAMDOM_QUOTE_API_URL)
